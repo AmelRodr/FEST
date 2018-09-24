@@ -106,5 +106,7 @@ app.use('/auth', authRoutes);
 const users = require('./routes/users')
 app.use('/users',users)
       
+const providers = require('./routes/providers')
+app.use('/providers',providers)
 
 module.exports = app;
