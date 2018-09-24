@@ -1,0 +1,32 @@
+<h1>USER</h1>
+
+<section class="profile">
+
+  <article>
+    {{#if data.photoURL}}
+    <img src="{{data.photoURL}} " alt="">
+    {{else}}
+    <img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2018/03/meme-fest-1522372409.jpg" alt="">
+    {{/if}}
+    {{#if owner}}
+    <div>
+      <form action="/user/{{data.dataname}}" method="post" enctype="multipart/form-data">
+          <input type="text" name="username" id="" value="{{data.username}}">
+          <input type="email" name="email" id="" value="{{data.email}}">
+          {{!-- <textarea name="bio" id="" rows="5">{{data.bio}}</textarea> --}}
+          <input type="file" name="image">
+          <input type="submit" value="Save">
+       </form>
+    </div>
+    {{else}}
+    <div>
+            
+            <h2>{{data.username}} </h2>
+            <h3>{{data.email}} </h3>
+
+    </div>
+    {{/if}}
+
+  </article>
+
+</section>

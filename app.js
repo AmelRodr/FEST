@@ -12,7 +12,15 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
-    
+
+// mongoose
+//   .connect(process.env.DB, {useNewUrlParser: true})
+//   .then(x => {
+//     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+//   })
+//   .catch(err => {
+//     console.error('Error connecting to mongo', err)
+//   });
 
 mongoose
   .connect('mongodb://localhost/fest', {useNewUrlParser: true})
@@ -27,6 +35,20 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+//passport
+/*app.use(session({
+  store: new MongoStore({
+    mongooseConnection:mongoose.connection,
+    ttl:24*60*60
+  }),
+  secret:'amel',
+  resave:true,
+  saveUninitialized:true,  
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())*/
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -80,6 +102,9 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+const users = require('./routes/users')
+app.use('/users',users)
       
 
 module.exports = app;
