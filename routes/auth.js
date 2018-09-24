@@ -25,15 +25,7 @@ router.post('/login',passport.authenticate('local',{
    res.redirect(`/users/${username}`)  //para ir a la pagina de profile del user
 
 })
-/*
-router.post("/login", passport.authenticate("local", {
 
-  successRedirect: `/users/profile`,
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
-*/
 
 ///SIGN UP
 router.get("/signup", (req, res, next) => {
