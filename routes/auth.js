@@ -7,18 +7,35 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
+//LOGIN
 
 router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 
+router.post('/login',passport.authenticate('local',{
+  //estos sirven para marcar el error en caso de no ingresar password o user correctos
+  failureRedirect: "/auth/login",
+  failureFlash: true,
+  passReqToCallback: true
+
+}),(req,res,next)=>{
+   const {username} = req.user
+   req.app.locals.user = req.user
+   res.redirect(`/users/${username}`)  //para ir a la pagina de profile del user
+
+})
+/*
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+
+  successRedirect: `/users/profile`,
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
 }));
+*/
 
+///SIGN UP
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
@@ -26,8 +43,9 @@ router.get("/signup", (req, res, next) => {
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+  const email = req.body.email;
+  if (username === "" || password === "" || email === "") {
+    res.render("auth/signup", { message: "Indicate username, password and email" });
     return;
   }
 
@@ -41,6 +59,7 @@ router.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
+      email,
       username,
       password: hashPass
     });
