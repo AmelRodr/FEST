@@ -13,6 +13,8 @@ const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
 
+const passport = require('passport')
+
 // mongoose
 //   .connect(process.env.DB, {useNewUrlParser: true})
 //   .then(x => {
@@ -37,7 +39,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 //passport
-/*app.use(session({
+app.use(session({
   store: new MongoStore({
     mongooseConnection:mongoose.connection,
     ttl:24*60*60
@@ -48,7 +50,7 @@ const app = express();
 }))
 
 app.use(passport.initialize())
-app.use(passport.session())*/
+app.use(passport.session())
 
 // Middleware Setup
 app.use(logger('dev'));

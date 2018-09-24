@@ -20,6 +20,10 @@ const providerSchema = new Schema({
     type:String,
     enum : ['EXCELENTE','NORMAL','MALO'],
     default: 'NORMAL'
+  },
+  category:{
+    type:String,
+    enum:['Musica','Animación', 'Gastronomía', 'Juegos','Bebidas','Decoración y Ambiente','Video y Fotografía']
   }
 }, {
   timestamps: {
