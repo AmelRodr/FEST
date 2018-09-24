@@ -1,0 +1,31 @@
+<h1>{{name}}</h1>
+<a href="/provider/edit"><button>Edit Profile</button></a>
+<section class="profile">
+  <article>
+    {{#if data.photoURL}}
+    <img src="{{data.photoURL}} " alt="">
+    {{else}}
+    <img src="/public/images/photo-placeholder.png" alt="">
+    {{/if}}
+    <div>
+      <h3>Rating :</h3>
+      <p>{{rating}}</p>
+    </div>
+    <a href="mailto:{{email}}"><button>Contact</button></a>
+  </article>
+  <!-- Write a comment -->
+  <article>
+    <form action="/comments" method="POST">
+      <textarea name="comment" id="comment" rows="5" placeholder="Escribe un comentario..."></textarea>
+      <input type="submit" value="Publicar">
+    </form>   
+  </article>
+
+  <!-- Write a comment -->
+  <article>
+    {{#each comments}}
+    <p><img src="{{this.user.photoURL}}" alt="">{{this.user.username}}</p>
+    <p>{{this.text}}</p>   
+    {{/each}}     
+  </article>
+</section>

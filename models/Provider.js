@@ -8,6 +8,7 @@ const providerSchema = new Schema({
     type: String,
     unique: true
   },
+  name:String,
   password: String,
   photoURL: String,
   bio:String,
@@ -15,6 +16,11 @@ const providerSchema = new Schema({
     type:Schema.Types.ObjectId,
     ref:'Galeria'
   },
+  rating:{
+    type:String,
+    enum : ['EXCELENTE','NORMAL','MALO'],
+    default: 'NORMAL'
+  }
 }, {
   timestamps: {
     createdAt: 'created_at',
