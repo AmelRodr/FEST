@@ -1,19 +1,15 @@
 const router = require('express').Router()
 const Provider = require('../models/Provider')
 
-const Comment = require('../models/Comment')
+
 
 router.get('/:username', (req, res, next)=>{
   const {username} = req.params
   Provider.findOne({username:username})
-    .then(provider=>{
-      Comment.find({provider:provider._id}).sort('-created_at'){
-        res.render('providers/profile',{data:provider, comments:comments})
-      }       
-    }).catch(error=>{
-      res.redirect('/')
-    })
-})
+  .then(provider=>{
+    res.render('/profile')
+  })
+  .catch(e=>next(e))
 
 //Edit Profile
 router.get('/:username/edit', (req, res, next)=>{
