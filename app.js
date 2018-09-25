@@ -8,12 +8,11 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
 
-const passport = require('passport')
+const passport = require('./helpers/passport');
 
 // mongoose
 //   .connect(process.env.DB, {useNewUrlParser: true})

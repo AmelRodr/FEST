@@ -11,6 +11,10 @@
       <h3>Rating :</h3>
       <p>{{rating}}</p>
     </div>
+    <div>
+      <p>{{category}}</p>
+      <p>{{bio}}</p>
+    </div>
     <a href="mailto:{{email}}"><button>Contact</button></a>
   </article>
   <!-- Write a comment -->
@@ -21,7 +25,7 @@
     </form>   
   </article>
 
-  <!-- Write a comment -->
+  <!-- Display comments -->
   <article>
     {{#each comments}}
     <p><img src="{{this.user.photoURL}}" alt="">{{this.user.username}}</p>

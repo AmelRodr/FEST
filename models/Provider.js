@@ -9,7 +9,6 @@ const providerSchema = new Schema({
     unique: true
   },
   name:String,
-  password: String,
   photoURL: String,
   bio:String,
   photoGallery:{
