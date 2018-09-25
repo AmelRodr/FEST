@@ -60,9 +60,7 @@ router.get('/login',(req, res, next)=>{
 })
 
 router.post('/login',(req, res, next) => {
-  // console.log(req.body)
-  const username = req.body.email
-  // console.log(username)
+  const {username} = req.body
   res.redirect(`/providers/${username}`)
 })
 

@@ -31,6 +31,6 @@ const providerSchema = new Schema({
   }
 });
 
-providerSchema.plugin(plm,{usernameField:'email'})
+providerSchema.plugin(plm,{usernameField:'username'})
 const Provider = mongoose.model('Provider', providerSchema);
 module.exports = Provider;
