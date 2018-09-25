@@ -1,25 +1,36 @@
-
-<h2>Login</h2>
-
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
-
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-
-  <button>Login</button>
-
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+<div>
+  <div class="row">
+    <div class="login-lc col-8">
+      <div class="rc-container">
+        <img class="logo-img" src="/images/logo.svg" alt="">
+        <h2>Registrate!</h2>
+        <p>Banquetes, Fotógrafos de bodas, Música para bodas, Autos para bodas, Invitaciones de boda, Tiendas de novia, Arreglos florales boda, Trajes de novio.
+        Encontrarás aquí todos los proveedores para armar tu fiesta.</p>
+        <a href="/auth/signup"><button class="btn btn-danger">Soy cliente</button></a>
+        <a href="/providers/signup"><button class="btn btn-danger">Soy una empresa</button></a>
+      </div>
+      
+    </div>
+    <!-- Right Column -->
+    <div class="login-rc col-4">
+      <form action="/auth/login" method="POST">
+        <h2>O ingresa a tu cuenta</h2>
+        <br>
+        <div class="form-group">
+          <label for="username">Usuario</label>
+          <input type="text" name="username" class="form-control" id="username" placeholder="JonSnow">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Tu contraseña">
+        </div>
+        {{#if message }}
+          <div class="error-message">{{ message }}</div>
+        {{/if}}
+        <br>
+        <button type="submit" class="btn btn-danger">Iniciar sesión</button>
+      </form>
+    </div>
+  </div>
+</div>
