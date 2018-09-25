@@ -1,5 +1,5 @@
 const express = require("express");
-const passport = require('passport');
+const passport = require('../helpers/passport');
 const router = express.Router();
 const User = require("../models/User");
 
@@ -9,21 +9,19 @@ const bcryptSalt = 10;
 
 //LOGIN
 
-router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
-});
+router.get('/login',(req, res, next)=>{
+  res.render('auth/login')
+})
 
-router.post('/login',passport.authenticate('local',{
-  //estos sirven para marcar el error en caso de no ingresar password o user correctos
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
+router.post('/login',passport.authenticate('local'),(req, res, next) => {
+  console.log('loguini')
+  const {username} = req.body
+  if(req.user.role === 'Cliente'){
+    res.redirect(`/users/${username}`)
+  }else{
 
-}),(req,res,next)=>{
-   const {username} = req.user
-   req.app.locals.user = req.user
-   res.redirect(`/users/${username}`)  //para ir a la pagina de profile del user
-
+    res.redirect(`/providers/${username}`)
+  }
 })
 
 
@@ -33,37 +31,20 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const email = req.body.email;
-  if (username === "" || password === "" || email === "") {
-    res.render("auth/signup", { message: "Indicate username, password and email" });
+  const {username} = req.body;
+  const {password} = req.body;
+  const {email} = req.body;
+  const {role} = req.body;
+  if (username === "" || password === "" || email === "" || role === "") {
+    res.render("auth/signup", { message: "Indicate account, username, password and email" });
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
-    if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
-      return;
-    }
-
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
-
-    const newUser = new User({
-      email,
-      username,
-      password: hashPass
-    });
-
-    newUser.save()
-    .then(() => {
-      res.redirect("/auth/login");
+  User.register(req.body, password)
+    .then(r=>{
+      res.redirect('/auth/login')
     })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
-  });
+
 });
 
 router.get("/logout", (req, res) => {

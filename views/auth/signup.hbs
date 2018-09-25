@@ -2,7 +2,13 @@
   <div class="login-rc col-8">
     <div style="width:70%;margin:0 auto;">
       <form action="/auth/signup" method="POST">
-        <h2>Registrate como Usuario</h2>
+        <h2>Registrate</h2>
+        <br>
+        <div class="form-group">
+          <label for="role">Tipo de cuenta</label>
+          <input id="role" type="radio" name="role" value="Cliente">Cliente<br>
+          <input id="role" type="radio" name="role" value="Empresa">Empresa<br>
+        </div>
         <br>
         <div class="form-group">
           <label for="email">Correo electronico</label>

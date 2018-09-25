@@ -9,6 +9,11 @@ const providerSchema = new Schema({
     unique: true
   },
   name:String,
+  role:{
+    type:String,
+    enum:['Cliente', 'Empresa'],
+    default: 'Cliente'
+  },
   photoURL: String,
   bio:String,
   photoGallery:{

@@ -1,8 +1,8 @@
 const passport = require('passport');
-const Provider = require('../models/Provider');
+const User = require('../models/User');
 
 
-passport.use(Provider.createStrategy());
+passport.use(User.createStrategy());
 
 passport.serializeUser((user, cb) => {
   cb(null, user)
