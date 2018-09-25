@@ -1,8 +1,26 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+footer {
+  background-color: #001D25;
+  color: #fff;
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+  text-align: center;
+  padding: 5px; }
 
-a {
-  color: #00B7FF; }
+.logo-img {
+  width: 200px;
+  margin-bottom: 30px; }
+
+.home-container {
+  width: 60%;
+  padding-top: 300px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff; }
+
+.homepage-img {
+  background-image: url("../images/home-bg.png");
+  background-size: cover;
+  height: 100vh; }
 
 /*# sourceMappingURL=style.css.map */
