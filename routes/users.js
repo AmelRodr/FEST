@@ -7,7 +7,8 @@ router.get('/:username', (req, res, next)=>{
   const {username} = req.params
   User.findOne({username:username})
     .then(user=>{    
-      res.render('users/profile',user)
+
+      //res.render('users/profile',user)
     }).catch(error=>{
       console.log(error)
     })
@@ -17,7 +18,7 @@ router.get('/:username', (req, res, next)=>{
 ///EDIT
 
 router.get('/:username/edit',(req,res,next)=>{
-  const {username} = req.params
+  //const {username} = req.params
   console.log(req.user._id)
   User.findById(req.user._id) 
   .then(user=>{
@@ -33,7 +34,6 @@ router.post('/:username/edit',uploadCloud.single('image'),(req,res,next)=>{
     res.redirect(`/users/${username}`)
   }).catch(e=>{
     console.log(e)
-    console.log
   })
 })                    
 

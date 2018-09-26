@@ -14,6 +14,7 @@ router.get('/:username', (req, res, next)=>{
     })
 })
 
+///EDIT
 
 router.get('/:username/edit',(req,res,next)=>{
   const {username} = req.params
@@ -33,7 +34,35 @@ router.post('/:username/edit',uploadCloud.single('image'),(req,res,next)=>{
   }).catch(e=>{
     console.log(e)
   })
-})                    
+})        
+
+///LIST
+console.log('hola')
+router.get('/uno/list',(req,res,next)=>{
+ // console.log('dentro de list')
+  User.find({role:'Empresa'})
+  .then(users=>{
+    //console.log( 'AQUI*********')
+  
+    res.render('users/list',{users})
+  }).catch(e=>{
+    res.redirect('/:username')
+  })
+})
+
+
+///COMMENTS
+
+router.post('/:username/comments',(req, res, next)=>{
+  const {id} = req.params
+  req.body['user'] = req.user._id
+  Comment.create(req.body)
+    .then(comment=>{
+      res.redirect(`/posts/detail/${id}`)
+    }).catch(e=>{
+      console.log(e)
+    })
+})
 
 
 
