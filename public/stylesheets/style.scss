@@ -5,8 +5,11 @@
 }
 
 .home-container{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 60%;
-  padding-top:300px;
   margin: 0 auto;
   text-align: center;
   color: #fff;
@@ -16,6 +19,7 @@
   background-image: url('../images/home-bg.png');
   background-size: cover;
   height:100vh;
+  display:flex;
 }
 
 //Login page
@@ -23,10 +27,16 @@
   background-color: #001D25;
   color:#fff;
   height: 100vh;
-  padding: 200px 50px;
+  padding: 50px;
+  display:flex;
 }
 .login-rc form{
-  padding:50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 80%;
+  margin: 0 auto;
 }
 input.form-control{
   background-color:transparent;
@@ -46,11 +56,14 @@ input.form-control{
   background-size: cover;
   height:100vh;
   color:#fff;
+  display:flex;
 }
 .rc-container{
   width:50%;
-  padding-top:200px;
   margin: 0 auto;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .rc-container p{
   margin-bottom:40px;
