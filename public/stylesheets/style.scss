@@ -91,7 +91,9 @@ input.form-control{
 
 //Profile
 .profile-pic{
-  width:80%;
+  width:300px;
+  height:300px;
+  border-radius:50%;
 }
 
 .profile-header h1{
@@ -100,7 +102,7 @@ input.form-control{
 }
 
 .pro-profile-container{
-  background-color:#001D25;
+  background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
   color:#fff;
   height:100%;
   padding-top:3%;
@@ -110,7 +112,11 @@ input.form-control{
   border-left:1px solid #fff;
   padding-left:50px;
 }
-
+.comments-section{
+  background-color:#171819;
+  color:#fff;
+  height:100vh;
+}
 .write-comment{
   padding-top:50px;
 }
