@@ -1,0 +1,50 @@
+
+<h1>edit providers</h1>
+
+
+<form action="/providers/{{username}}/edit" method="post" enctype="multipart/form-data">
+
+  <label for="email">Email</label>
+  <input type="email" name="email" placeholder="ejemplo@algo.com" id="{{email}} ">
+
+  <br><br>
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Your password" id="{{password}} " >
+  <br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+  <label for="bio">Biografia</label>
+  <textarea name="bio" id="{{bio}} " ></textarea>
+
+  <br><br>
+  <label for="name">Nombre empresa</label>
+  <input type="text" name="name" id="{{name}}">
+
+  <br><br>
+  <label for="category">Categoria:</label>
+  <select name="category" id="category">
+    <option value="Musica" id="{{category}}">Musica</option>
+    <option value="Animación" id="{{category}}" >Animacion</option>
+    <option value="Gastronomía" id="{{category}}">Gastronomía</option>
+    <option value="Juegos" id="{{category}}" >Juegos</option>
+    <option value="Bebidas" id="{{category}}">Bebidas</option>
+    <option value="Decoración y Ambiente" id="{{category}}" >Decoración y Ambiente</option>
+    <option value="Video y Fotografía" id="{{category}}" >Video y Fotografía</option>
+  </select>
+
+  {{!-- <br><br>
+   <input type="file" name="image"> --}}
+
+    <br><br>
+    <label for="galerry">Galeria:</label>
+   <br><br>
+  <input type="submit" value="guardar">
+
+ 
+
+  </p>
+</form>
