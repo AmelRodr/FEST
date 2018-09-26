@@ -1,0 +1,27 @@
+
+<h1>edit</h1>
+
+
+<form action="/users/{{data.dataname}}/edit" method="post" enctype="multipart/form-data">
+
+  <label for="email">Email</label>
+  <input type="email" name="email" id="" placeholder="ejemplo@algo.com">
+
+  <br><br>
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Your password">
+  <br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+   <input type="file" name="image">
+  <input type="submit" value="guardale">
+
+  </p>
+</form>
+
+
+ 
