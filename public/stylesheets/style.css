@@ -80,8 +80,8 @@ input.form-control {
   margin: 0 auto; }
 
 .profile-pic {
-  width: 300px;
-  height: 300px;
+  width: 10em;
+  height: 10em;
   border-radius: 50%; }
 
 .profile-header h1 {

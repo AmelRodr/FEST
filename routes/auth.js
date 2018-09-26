@@ -14,7 +14,7 @@ router.get('/login',(req, res, next)=>{
 })
 
 router.post('/login',passport.authenticate('local'),(req, res, next) => {
-  console.log('loguini')
+  console.log(req.user)
   const {username} = req.body
   if(req.user.role === 'Cliente'){
     res.redirect(`/users/${username}`)

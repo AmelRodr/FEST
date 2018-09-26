@@ -8,7 +8,7 @@ router.get('/:username', (req, res, next)=>{
   User.findOne({username:username})
     .then(user=>{    
 
-      //res.render('users/profile',user)
+      res.render('users/profile',user)
     }).catch(error=>{
       console.log(error)
     })
