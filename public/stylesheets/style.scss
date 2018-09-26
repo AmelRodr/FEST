@@ -18,7 +18,7 @@
 .homepage-img{
   background-image: url('../images/home-bg.png');
   background-size: cover;
-  min-height:100vh;
+  height:100vh;
   display:flex;
 }
 
@@ -26,7 +26,7 @@
 .login-rc{
   background-color: #001D25;
   color:#fff;
-  min-height: 100vh;
+  height: 100vh;
   padding: 50px;
   display:flex;
 }
@@ -54,7 +54,7 @@ input.form-control{
 .login-lc{
   background-image: url('../images/home-bg.png');
   background-size: cover;
-  min-height:100vh;
+  height:100vh;
   color:#fff;
   display:flex;
 }
