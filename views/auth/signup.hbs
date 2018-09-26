@@ -4,10 +4,17 @@
       <form action="/auth/signup" method="POST">
         <h2>Registrate</h2>
         <br>
-        <div class="form-group">
-          <label for="role">Tipo de cuenta</label>
-          <input id="role" type="radio" name="role" value="Cliente">Cliente<br>
-          <input id="role" type="radio" name="role" value="Empresa">Empresa<br>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="role" id="cliente" value="Cliente" checked>
+          <label class="form-check-label" for="cliente">
+            Soy cliente
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="role" id="empresa" value="Empresa">
+          <label class="form-check-label" for="empresa">
+            Soy una empresa
+          </label>
         </div>
         <br>
         <div class="form-group">

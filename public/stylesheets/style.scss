@@ -1,14 +1,3 @@
-//Footer
-footer{
-  background-color:#001D25;
-  color:#fff;
-  position: absolute;
-  bottom:0px;
-  width:100vw;
-  text-align:center;
-  padding:5px;
-}
-
 //Homepage
 .logo-img{
   width:200px;
@@ -85,4 +74,10 @@ input.form-control{
 }
 .logo-centered{
   margin: 0 auto;
+}
+
+//Profile
+.profile-pic{
+  width:200px;
+  margin-top:30px;
 }
