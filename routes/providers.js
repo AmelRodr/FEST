@@ -17,7 +17,7 @@ router.get('/:username', (req, res, next)=>{
 ///EDIT
 
 router.get('/:username/edit',(req,res,next)=>{
-  const {username} = req.params
+ 
   console.log(req.user._id)
   User.findById(req.user._id) 
   .then(user=>{

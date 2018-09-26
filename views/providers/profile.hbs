@@ -2,10 +2,10 @@
   <div style="margin:0 auto;" class="row">
     <div class="col-3">
       {{#if photoURL}}
-        <img src="{{photoURL}} " alt="">
-      {{else}}
-        <img class="profile-pic" src="/images/photo-placeholder.png" alt="">
-      {{/if}}
+    <img src="{{photoURL}} " alt="">
+    {{else}}
+    <img src="/images/photo-placeholder.png" alt="">
+    {{/if}}
     </div>
     <div class="profile-detail col-6">
       <h1>{{username}}</h1>
@@ -19,7 +19,7 @@
       <a href="mailto:{{email}}"><button class="btn btn-dark">Contact</button></a>
     </div>
     <div class="col-2">
-      <a href="/provider/edit"><button class="btn btn-dark">Edit Profile</button></a>
+      <a href="/providers/{{username}}/edit"><button class="btn btn-dark">Edit Profile</button></a>
     </div>
   </div>
 
