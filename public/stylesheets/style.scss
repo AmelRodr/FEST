@@ -1,8 +1,83 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+//Homepage
+.logo-img{
+  width:200px;
+  margin-bottom: 50px;
 }
 
-a {
-  color: #00B7FF;
+.home-container{
+  width: 60%;
+  padding-top:300px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+
+.homepage-img{
+  background-image: url('../images/home-bg.png');
+  background-size: cover;
+  height:100vh;
+}
+
+//Login page
+.login-rc{
+  background-color: #001D25;
+  color:#fff;
+  height: 100vh;
+  padding: 200px 50px;
+}
+.login-rc form{
+  padding:50px;
+}
+input.form-control{
+  background-color:transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  border-radius : 0;
+}
+
+.error-message{
+  padding:5px;
+  border: 1px dashed #fff;
+  margin-bottom: 20px;
+}
+
+.login-lc{
+  background-image: url('../images/home-bg.png');
+  background-size: cover;
+  height:100vh;
+  color:#fff;
+}
+.rc-container{
+  width:50%;
+  padding-top:200px;
+  margin: 0 auto;
+}
+.rc-container p{
+  margin-bottom:40px;
+}
+.rc-container a{
+  margin-right:20px;
+}
+.rc-container h2{
+  margin-bottom:20px;
+}
+
+//Register
+.U-reg-right{
+  display:flex;
+  padding:50px;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url('../images/register.jpg');
+  background-size: cover;
+  height:100vh;
+}
+.logo-centered{
+  margin: 0 auto;
+}
+
+//Profile
+.profile-pic{
+  width:200px;
+  margin-top:30px;
 }
