@@ -94,22 +94,23 @@ input.form-control{
   width:80%;
 }
 
-.profile-header{
-  background-image: url('../images/register.jpg');
-  background-size: cover;
-  height:20vh;
-  text-align: center;
-  padding-top:3%;
-}
 .profile-header h1{
   font-size: 3em;
   font-weight:800;
 }
 
 .pro-profile-container{
+  background-color:#001D25;
+  color:#fff;
+  height:100%;
+  padding-top:3%;
   padding:50px;
 }
-.profile-detail{
-  border-left:1px solid #000;
+.profile-detail.col-6{
+  border-left:1px solid #fff;
   padding-left:50px;
+}
+
+.write-comment{
+  padding-top:50px;
 }

@@ -1,8 +1,4 @@
-<section class="profile-header">
-  <h1>Proveedor</h1>
-</section>
-
-<div class="pro-profile-container container">
+<div class="pro-profile-container">
   <div class="row">
     <div class="col-4">
       {{#if photoURL}}
@@ -15,25 +11,28 @@
       <h1>{{username}}</h1>
       <br>
       <h5>Calificación :</h5>
-      <p>{{rating}}</p>
+      <p class="badge badge-warning">{{rating}}</p>
       <br>
       <p>Categoría : {{category}}</p>
       <p>Descripción : {{bio}}</p>
       <br>
-      <a href="mailto:{{email}}"><button>Contact</button></a>
+      <a href="mailto:{{email}}"><button class="btn btn-dark">Contact</button></a>
     </div>
     <div class="col-2">
-      <a href="/provider/edit"><button>Edit Profile</button></a>
+      <a href="/provider/edit"><button class="btn btn-dark">Edit Profile</button></a>
     </div>
   </div>
 
 </div>
-
+<section class="comments-section">
   <!-- Write a comment -->
-  <div class="container">
+  <div class="write-comment container">
     <form action="/comments" method="POST">
-      <textarea name="comment" id="comment" rows="5" placeholder="Escribe un comentario..."></textarea>
-      <input type="submit" value="Publicar">
+      <div class="form-group">
+        <label for="comment">Escribe un comentario</label>
+        <textarea class="form-control" id="comment" name="text" rows="3"></textarea>
+      </div>
+      <input class="btn btn-secondary" type="submit" value="Publicar">
     </form>   
   </div>
 
