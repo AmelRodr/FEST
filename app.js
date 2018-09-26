@@ -14,23 +14,23 @@ const flash      = require("connect-flash");
 
 const passport = require('./helpers/passport');
 
-// mongoose
-//   .connect(process.env.DB, {useNewUrlParser: true})
-//   .then(x => {
-//     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-//   })
-//   .catch(err => {
-//     console.error('Error connecting to mongo', err)
-//   });
-
 mongoose
-  .connect('mongodb://localhost/fest', {useNewUrlParser: true})
+  .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
   });
+
+// mongoose
+//   .connect('mongodb://localhost/fest', {useNewUrlParser: true})
+//   .then(x => {
+//     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+//   })
+//   .catch(err => {
+//     console.error('Error connecting to mongo', err)
+//   });
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
