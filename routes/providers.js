@@ -22,7 +22,7 @@ router.get('/:username/edit',(req,res,next)=>{
   .then(user=>{
     res.render('providers/edit',user)
   }).catch(e=>next(e))
-})/*
+})
 
 router.post('/:username/edit',uploadCloud.single('image'),(req,res,next)=>{
   const {username} = req.params
@@ -34,7 +34,7 @@ router.post('/:username/edit',uploadCloud.single('image'),(req,res,next)=>{
     console.log(e)
   })
 })                    
-*/
+
 
 
 module.exports = router
