@@ -18,7 +18,7 @@
 .homepage-img{
   background-image: url('../images/home-bg.png');
   background-size: cover;
-  height:100vh;
+  min-height:100vh;
   display:flex;
 }
 
@@ -26,7 +26,7 @@
 .login-rc{
   background-color: #001D25;
   color:#fff;
-  height: 100vh;
+  min-height: 100vh;
   padding: 50px;
   display:flex;
 }
@@ -54,7 +54,7 @@ input.form-control{
 .login-lc{
   background-image: url('../images/home-bg.png');
   background-size: cover;
-  height:100vh;
+  min-height:100vh;
   color:#fff;
   display:flex;
 }
@@ -83,7 +83,7 @@ input.form-control{
   flex-direction: column;
   background-image: url('../images/register.jpg');
   background-size: cover;
-  height:100vh;
+  min-height:100vh;
 }
 .logo-centered{
   margin: 0 auto;
@@ -107,6 +107,7 @@ input.form-control{
   height:100%;
   padding-top:3%;
   padding:50px;
+  margin-top:50px;
 }
 .profile-detail.col-6{
   border-left:1px solid #fff;
@@ -115,8 +116,64 @@ input.form-control{
 .comments-section{
   background-color:#171819;
   color:#fff;
-  height:100vh;
+  min-height:100vh;
 }
 .write-comment{
   padding-top:50px;
+}
+
+.form-title{
+  font-size:2em;
+  color:#ffc107;
+}
+
+nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.dashed-container{
+  padding:20px;
+  border: 1px dashed #fff;
+  margin:20px;
+}
+.nav-link{
+  color:#fff !important;
+  margin-left:20px;
+}
+//List
+.list-header{
+  background-image: url('../images/register.jpg');
+  background-size: cover;
+  height:40vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list{
+  background-color: #171819;
+  padding-top:50px;
+  min-height:100vh;
+}
+
+.card-foto{
+  width:100%;
+  display:block;
+}
+.card{
+  padding: 0!important;
+  margin: 10px;
+  background-color:#3E3F40 !important;
+  color:#fff !important;
+
+}
+.card-title{
+  color:#ffc107;
+}
+.form-inline .form-control{
+  background-color:#fff;
+  width: 80vw;
+}
+#search-bar{
+  width:60vw;
 }
