@@ -91,8 +91,7 @@ input.form-control{
 
 //Profile
 .profile-pic{
-  width:200px;
-  margin-top:30px;
+  width:80%;
 }
 
 .profile-header{
@@ -105,4 +104,12 @@ input.form-control{
 .profile-header h1{
   font-size: 3em;
   font-weight:800;
+}
+
+.pro-profile-container{
+  padding:50px;
+}
+.profile-detail{
+  border-left:1px solid #000;
+  padding-left:50px;
 }

@@ -2,16 +2,16 @@
   <h1>Proveedor</h1>
 </section>
 
-<div class="container">
+<div class="pro-profile-container container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-4">
       {{#if photoURL}}
         <img src="{{photoURL}} " alt="">
       {{else}}
         <img class="profile-pic" src="/images/photo-placeholder.png" alt="">
       {{/if}}
     </div>
-    <div class="col-6">
+    <div class="profile-detail col-6">
       <h1>{{username}}</h1>
       <br>
       <h5>Calificación :</h5>
@@ -22,7 +22,7 @@
       <br>
       <a href="mailto:{{email}}"><button>Contact</button></a>
     </div>
-    <div class="col-3">
+    <div class="col-2">
       <a href="/provider/edit"><button>Edit Profile</button></a>
     </div>
   </div>
