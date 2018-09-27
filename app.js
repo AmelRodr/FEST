@@ -110,4 +110,7 @@ app.use('/users',users)
 const providers = require('./routes/providers')
 app.use('/providers',providers)
 
+const gallery = require('./routes/gallery')
+app.use('/providers',gallery)
+
 module.exports = app;
