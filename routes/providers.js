@@ -14,8 +14,8 @@ router.get('/:username', (req, res, next)=>{
         .then(comments=>{
           let isOwner=false
           if(req.user.username==user.username)isOwner=true
-          console.log( 'esto', comments[comments.length -1].user)
-          res.render('providers/profile',{user, owner: isOwner,comments:comments, author: comments.user})
+          //console.log( 'esto', comments[comments.length -1].user)
+          res.render('providers/profile',{user, owner: isOwner,comments:comments, author: comments.user}).cath(e=>next(e))
     }).catch(error=>{
       console.log(error)
     }) 
@@ -62,18 +62,21 @@ router.get('/uno/list',(req,res,next)=>{
 ///COMMENTS
 
 router.post('/:username/comments',(req, res, next) => {
-  let author = req.app.locals.loggedUser._id
+  let author = req.user._id//req.app.locals.loggedUser._id
   console.log(req.user)
   let {username} = req.params 
   User.findOne({username})
   .then(user => {
-    Comment.create({...req.body, user: author, provider: user._id})
+    req.body.user=author;
+    req.body.provider=user._id
+    //Comment.create({...req.body, user: author, provider: user._id})
+    Comment.create(req.body)
     .then(comment => {
       User.findByIdAndUpdate(user._id, {$push: {comments: comment._id}}, {new: true})
       .then(result => {
         res.redirect(`/providers/${username}`)
-      })
-    })
-  })
+      }).catch(e=>next(e))
+    }).catch(e=>next(e))
+  }).catch(e=>next(e))
 })
 module.exports = router
