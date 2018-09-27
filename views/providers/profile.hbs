@@ -2,7 +2,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#!"><img style="width:60px;" src="/images/logo.svg" alt=""></a>
+  <a class="navbar-brand" href="/providers/uno/list"><img style="width:60px;" src="/images/logo.svg" alt=""></a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav ml-auto">
@@ -26,31 +26,26 @@
       {{/if}}
     </div>
     <div class="profile-detail col-6">
-      <h1>{{user.username}}</h1>
+      <h1>{{user.name}}</h1>
+      <p>{{user.username}}</p>
       <br>
       <h5>Calificación :</h5>
-      <p class="badge badge-warning">{{user.rating}}</p>
+      {{#colorText user.rating}}
+        <p id="newRating" class="badge badge-warning">{{user.rating}}</p>
+      {{/colorText}}
       <br>
       <p>Categoría : {{user.category}}</p>
       <p>Descripción : {{user.bio}}</p>
       <br>
       <a href="mailto:{{user.email}}"><button class="btn btn-dark">Contact</button></a>
+      <a href="/providers/{{user.username}}/gallery"><button class="btn btn-warning">Gallery</button></a>
     </div>
     <div class="col-2">
       <a href="/providers/{{user.username}}/edit"><button class="btn btn-dark">Edit Profile</button></a>
-    </div>
-    <div>
-      <a href="/providers/{{username}}/gallery"><button class="btn btn-dark">Gallery</button></a>
-    </div>
-
-   
-
-
-
-
+    </div>  
   </div>
-
 </div>
+
 <section class="comments-section">
   <!-- Write a comment -->
   <div class="write-comment container">
@@ -63,7 +58,7 @@
         <label for="rating">Calificar este proveedor</label>
         <select class="form-control" name="rating" id="rating">
           <option value="EXCELENTE">Excelente</option>
-          <option value="NORMAL">Normal</option>
+          <option value="REGULAR" selected>Regular</option>
           <option  value="MALO">Malo</option>
         </select>
   </div>
@@ -76,12 +71,20 @@
     {{#each comments}}
       <div class="dashed-container row">
         <div class="col-2">
-          <p><img style="width:5rem;height:5rem;" src="{{user.photoURL}}" alt="">{{user.username}}</p>
+          {{#if this.user.photoURL}}
+          <p><img style="width:5rem;height:5rem;" src="{{this.user.photoURL}}" alt="User photo"></p>
+          <p>{{this.user.username}}</p>
+          {{else}}
+          <p>{{this.user.username}}</p>
+          {{/if}}
         </div>
         <div class="col-10">
           <h5>Calificación :</h5>
-          <p id="newRating" class="badge badge-warning">{{rating}}</p>
-          <p>{{text}}</p>
+          {{#colorText this.rating}}
+          <p id="newRating" class="badge badge-warning">{{this.rating}}</p>
+          {{/colorText}}
+          
+          <p>{{this.text}}</p>
         </div>
       </div> 
     {{/each}}     

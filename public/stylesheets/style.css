@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+  padding: 0; }
+
 .logo-img {
   width: 200px;
   margin-bottom: 50px; }
@@ -142,9 +146,12 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark {
   width: 100%;
   display: block; }
 
+.col-3 {
+  max-width: 22% !important; }
+
 .card {
   padding: 0 !important;
-  margin: 10px;
+  margin: 15px;
   background-color: #3E3F40 !important;
   color: #fff !important; }
 
@@ -157,5 +164,11 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark {
 
 #search-bar {
   width: 60vw; }
+
+.edit-form {
+  background-color: #001D25;
+  color: #fff;
+  height: 100vh;
+  padding: 50px; }
 
 /*# sourceMappingURL=style.css.map */

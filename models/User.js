@@ -22,8 +22,8 @@ const userSchema = new Schema({
   },
   rating:{
     type:String,
-    enum : ['EXCELENTE','NORMAL','MALO'],
-    default: 'NORMAL'
+    enum : ['EXCELENTE','REGULAR','MALO'],
+    default: 'REGULAR'
   },
   category:{
     type:String,
