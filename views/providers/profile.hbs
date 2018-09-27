@@ -10,7 +10,7 @@
         <a class="nav-link" href="/providers/uno/list">Proveedores</a>
       </li>
       <li>
-        <a class="nav-link" href="/providers/{{username}}">{{username}}</a>
+        <a class="nav-link" href="/auth/logout">Salir</a>
       </li>
     </ul>
   </div>
@@ -19,25 +19,25 @@
 <div class="pro-profile-container">
   <div style="margin:0 auto;" class="row">
     <div class="col-3">
-      {{#if photoURL}}
-        <img src="{{photoURL}} " alt="">
+      {{#if user.photoURL}}
+        <img src="{{user.photoURL}} " alt="">
       {{else}}
         <img class="profile-pic" src="/images/photo-placeholder.png" alt="">
       {{/if}}
     </div>
     <div class="profile-detail col-6">
-      <h1>{{username}}</h1>
+      <h1>{{user.username}}</h1>
       <br>
       <h5>Calificación :</h5>
-      <p class="badge badge-warning">{{rating}}</p>
+      <p class="badge badge-warning">{{user.rating}}</p>
       <br>
-      <p>Categoría : {{category}}</p>
-      <p>Descripción : {{bio}}</p>
+      <p>Categoría : {{user.category}}</p>
+      <p>Descripción : {{user.bio}}</p>
       <br>
-      <a href="mailto:{{email}}"><button class="btn btn-dark">Contact</button></a>
+      <a href="mailto:{{user.email}}"><button class="btn btn-dark">Contact</button></a>
     </div>
     <div class="col-2">
-      <a href="/providers/{{username}}/edit"><button class="btn btn-dark">Edit Profile</button></a>
+      <a href="/providers/{{user.username}}/edit"><button class="btn btn-dark">Edit Profile</button></a>
     </div>
   </div>
 
@@ -45,7 +45,7 @@
 <section class="comments-section">
   <!-- Write a comment -->
   <div class="write-comment container">
-    <form action="/comments" method="POST">
+    <form action="/providers/{{user.username}}/comments" method="POST">
       <div class="form-group">
         <label class="form-title" for="comment">Escribe un comentario</label>
         <textarea class="form-control" id="comment" name="text" rows="3"></textarea>
@@ -67,14 +67,14 @@
     {{#each comments}}
       <div class="dashed-container row">
         <div class="col-2">
-          <p><img style="width:5rem;height:5rem;" src="{{this.user.photoURL}}" alt="">{{this.user.username}}</p>
+          <p><img style="width:5rem;height:5rem;" src="{{user.photoURL}}" alt="">{{user.username}}</p>
         </div>
         <div class="col-10">
           <h5>Calificación :</h5>
-          <p class="badge badge-warning">{{rating}}</p>
-          <p>{{this.text}}</p>
+          <p class="badge badge-warning">{{user.rating}}</p>
+          <p>{{text}}</p>
         </div>
       </div> 
     {{/each}}     
   </article>
-</section>
+</section>  

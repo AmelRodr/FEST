@@ -28,7 +28,11 @@ const userSchema = new Schema({
   category:{
     type:String,
     enum:['Musica','Animación', 'Gastronomía', 'Juegos','Bebidas','Decoración y Ambiente','Video y Fotografía']
-  }
+  },
+  comments: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Comment'
+  }]
 }, {
   timestamps: {
     createdAt: 'created_at',

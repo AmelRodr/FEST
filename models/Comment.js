@@ -7,10 +7,10 @@ const commentSchema = new Schema({
     type:Schema.Types.ObjectId,
     ref:'User'
   },
-  post:{
+  provider:{
     type:Schema.Types.ObjectId,
-    ref:'Post'
-  }
+    ref:'User'
+  },
 },{
   timestamps:{
     updatedAt:"update_at",
