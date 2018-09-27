@@ -1,14 +1,44 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#!"><img style="width:60px;" src="/images/logo.svg" alt=""></a>
 
-<h1>list</h1>
-
- <div class="list">
-   
-  {{#each users}}  
-  <p>
-    <a href="/providers/{{username}}">{{username}}</a>
-   
-  </p>
-  
-  {{/each}}
-
-</div>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/providers/uno/list">Proveedores</a>
+      </li>
+      <li>
+        <a class="nav-link" href="/providers/{{user.username}}">{{user.username}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<section class="list-header">
+  <form class="form-inline my-2 my-lg-0">
+    <input id="search-bar" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</bu>
+  </form>
+</section>
+<section class="list">
+  <div class="container">
+    <div class="row">
+      {{#each users}}  
+        <div class="card col-3">
+          {{#if photoURL}}
+              <img src="{{photoURL}} " alt="foto de la empresa">
+            {{else}}
+              <img class="card-foto" src="/images/photo-placeholder.png" alt="">
+            {{/if}}
+          <div class="card-body">
+            <h4 class="card-title">{{name}}</h4>
+            <p><strong>Calificación : </strong><span class="badge badge-warning">{{rating}}</span></p>
+            <p><strong>Categoría : </strong>{{category}}</p>
+            <a href="/providers/{{username}}"><button class="btn btn-danger">Ver más</button></a>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

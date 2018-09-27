@@ -7,9 +7,14 @@ const commentSchema = new Schema({
     type:Schema.Types.ObjectId,
     ref:'User'
   },
-  post:{
+  provider:{
     type:Schema.Types.ObjectId,
-    ref:'Post'
+    ref:'User'
+  },
+  rating:{
+    type:String,
+    enum : ['EXCELENTE','NORMAL','MALO'],
+    default: 'NORMAL'
   }
 },{
   timestamps:{
