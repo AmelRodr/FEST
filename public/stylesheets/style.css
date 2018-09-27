@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+  padding: 0; }
+
 .logo-img {
   width: 200px;
   margin-bottom: 50px; }
@@ -74,14 +78,14 @@ input.form-control {
   flex-direction: column;
   background-image: url("../images/register.jpg");
   background-size: cover;
-  height: 100vh; }
+  min-height: 100vh; }
 
 .logo-centered {
   margin: 0 auto; }
 
 .profile-pic {
-  width: 300px;
-  height: 300px;
+  width: 10em;
+  height: 10em;
   border-radius: 50%; }
 
 .profile-header h1 {
@@ -93,7 +97,8 @@ input.form-control {
   color: #fff;
   height: 100%;
   padding-top: 3%;
-  padding: 50px; }
+  padding: 50px;
+  margin-top: 50px; }
 
 .profile-detail.col-6 {
   border-left: 1px solid #fff;
@@ -102,9 +107,68 @@ input.form-control {
 .comments-section {
   background-color: #171819;
   color: #fff;
-  height: 100vh; }
+  min-height: 100vh; }
 
 .write-comment {
   padding-top: 50px; }
+
+.form-title {
+  font-size: 2em;
+  color: #ffc107; }
+
+nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark {
+  padding-left: 50px;
+  padding-right: 50px; }
+
+.dashed-container {
+  padding: 20px;
+  border: 1px dashed #fff;
+  margin: 20px; }
+
+.nav-link {
+  color: #fff !important;
+  margin-left: 20px; }
+
+.list-header {
+  background-image: url("../images/register.jpg");
+  background-size: cover;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.list {
+  background-color: #171819;
+  padding-top: 50px;
+  min-height: 100vh; }
+
+.card-foto {
+  width: 100%;
+  display: block; }
+
+.col-3 {
+  max-width: 22% !important; }
+
+.card {
+  padding: 0 !important;
+  margin: 15px;
+  background-color: #3E3F40 !important;
+  color: #fff !important; }
+
+.card-title {
+  color: #ffc107; }
+
+.form-inline .form-control {
+  background-color: #fff;
+  width: 80vw; }
+
+#search-bar {
+  width: 60vw; }
+
+.edit-form {
+  background-color: #001D25;
+  color: #fff;
+  height: 100vh;
+  padding: 50px; }
 
 /*# sourceMappingURL=style.css.map */

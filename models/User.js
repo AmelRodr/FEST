@@ -22,14 +22,18 @@ const userSchema = new Schema({
   },
   rating:{
     type:String,
-    enum : ['EXCELENTE','NORMAL','MALO'],
-    default: 'NORMAL'
+    enum : ['EXCELENTE','REGULAR','MALO'],
+    default: 'REGULAR'
   },
   category:{
     type:String,
     enum:['Musica','Animación', 'Gastronomía', 'Juegos','Bebidas','Decoración y Ambiente','Video y Fotografía']
   },
-  gallery:[String]
+  comments: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Comment'
+  }],
+  gallery:[String]                            
 }, {
   timestamps: {
     createdAt: 'created_at',

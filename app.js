@@ -71,6 +71,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+//helpers
 
 hbs.registerHelper('ifUndefined', (value, options) => {
   if (arguments.length < 2)
@@ -81,6 +82,14 @@ hbs.registerHelper('ifUndefined', (value, options) => {
       return options.fn(this);
   }
 });
+
+hbs.registerHelper('colorText', (value, options)=>{
+  console.log('loool',options)
+  let clase = ''
+  if(value==='EXCELENTE')return clase = `<p id="newRating" class="badge badge-success">${value}</p>`
+  if(value==='MALO')return clase = `<p id="newRating" class="badge badge-danger">${value}</p>`
+  if(value==='REGULAR')return clase = `<p id="newRating" class="badge badge-warning">${value}</p>`
+})
   
 
 // default value for title local
