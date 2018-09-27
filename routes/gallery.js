@@ -23,8 +23,9 @@ router.get('/:username/edit/gallery',(req,res,next)=>{
 })
 
 router.post('/:username/edit/gallery',uploadCloud.array('images'),(req,res,next)=>{
-  console.log(req.files)
+  
   const {username} = req.params
+ 
   if(req.files){
     let images = []
     for(let image of req.files ){
@@ -32,7 +33,7 @@ router.post('/:username/edit/gallery',uploadCloud.array('images'),(req,res,next)
     }
     req.body['gallery'] = images
   }
-  User.findOneAndUpdate({username:username},{$set:req.body},{new:true})
+  User.findOneAndUpdate({username:username},{$push:req.body},{new:true})
   .then(user=>{
     res.redirect(`/providers/${username}/gallery`)
   }).catch(e=>{

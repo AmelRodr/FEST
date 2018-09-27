@@ -15,6 +15,7 @@ router.get('/:username', (req, res, next)=>{
           let isOwner=false
           if(req.user.username==user.username)isOwner=true
           //console.log( 'esto', comments[comments.length -1].user)
+
           res.render('providers/profile',{user, owner: isOwner,comments:comments})
         .catch(e=>next(e))
     }).catch(error=>{
@@ -23,7 +24,7 @@ router.get('/:username', (req, res, next)=>{
   })
 })
 
-///EDIT
+///EDI
 
 router.get('/:username/edit',(req,res,next)=>{
   let {username} = req.params
@@ -40,9 +41,7 @@ router.post('/:username/edit',uploadCloud.single('image'),(req,res,next)=>{
   User.findOneAndUpdate({username:username},{$set:req.body},{new:true})
   .then(user=>{
     res.redirect(`/providers/${username}`)
-  }).catch(e=>{
-    console.log(e)
-  })
+  }).catch(e=>next(e))
 })        
 
 ///LIST
@@ -63,18 +62,27 @@ router.get('/uno/list',(req,res,next)=>{
 ///COMMENTS
 
 router.post('/:username/comments',(req, res, next) => {
+
+  //let author = req.user._id//req.app.locals.loggedUser._id
+
   let author = req.app.locals.loggedUser._id
+
   console.log(req.user)
   let {username} = req.params 
   User.findOne({username})
   .then(user => {
-    Comment.create({...req.body, user: author, provider: user._id})
+
+    req.body.user=author;
+    req.body.provider=user._id
+    //Comment.create({...req.body, user: author, provider: user._id})
+    Comment.create(req.body)
     .then(comment => {
+     
       User.findByIdAndUpdate(user._id, {$push: {comments: comment._id}}, {new: true})
       .then(result => {
         res.redirect(`/providers/${username}`)
-      })
-    })
-  })
+      }).catch(e=>next(e))
+    }).catch(e=>next(e))
+  }).catch(e=>next(e))
 })
 module.exports = router
