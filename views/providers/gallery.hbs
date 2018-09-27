@@ -1,9 +1,44 @@
-    <h1>Gallery</h1>
-    
-    <div>
-      <a href="/providers/{{username}}/edit/gallery"><button class="btn btn-dark">Edit Gallery</button></a>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/providers/uno/list"><img style="width:60px;" src="/images/logo.svg" alt=""></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/providers/uno/list">Proveedores</a>
+      </li>
+      <li>
+        <a class="nav-link" href="/auth/logout">Salir</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<section>
+  <div class="pro-profile-container">
+    <div style="margin:0 auto;">
+      <h1 style="text-align:center;">Gallery</h1>
     </div>
+  </div>
+</section>
+
+<section class="comments-section">
+ <div class="row">
+   <div style="margin:20px auto;" class="col-6">
+     <a href="/providers/{{username}}/edit/gallery"><button class="btn btn-dark">Edit Gallery</button></a>
+   </div>  
+ </div>
+ <div style="margin:10px;" class="row">
    {{#each gallery}}
-     <img src="{{this}}" alt="">
-     <p>Eliminar</p>
-    {{/each}}
+   <div class="col-3">
+     <img style="width:100%;" src="{{this}}" alt="">
+   </div>
+   {{/each}}
+ </div>
+</section>
+    
+    
+    
+    
