@@ -10,7 +10,7 @@
   <br><br>
 
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password" value="{{password}} " >
+  <input id="password" type="password" name="password" placeholder="Your password" value="{{password}}" >
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
@@ -18,11 +18,11 @@
 
   <br><br>
   <label for="bio">Biografia</label>
-  <textarea name="bio" id="{{bio}} " ></textarea>
+  <textarea name="bio" id="{{bio}}">{{bio}}</textarea>
 
   <br><br>
   <label for="name">Nombre empresa</label>
-  <input type="text" name="name" id="{{name}}">
+  <input type="text" name="name" id="{{name}}" value='{{name}}'>
 
   <br><br>
   <label for="category">Categoria:</label>

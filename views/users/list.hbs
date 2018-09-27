@@ -12,6 +12,9 @@
       <li>
         <a class="nav-link" href="/providers/{{user.username}}">{{user.username}}</a>
       </li>
+      <li>
+        <a class="nav-link" href="/auth/logout">Salir</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -22,19 +25,27 @@
   </form>
 </section>
 <section class="list">
-  <div class="container">
+  <div style="width:90%;margin: 0 auto;">
     <div class="row">
       {{#each users}}  
         <div class="card col-3">
           {{#if photoURL}}
-              <img src="{{photoURL}} " alt="foto de la empresa">
+              <img class="card-foto" src="{{photoURL}} " alt="foto de la empresa">
             {{else}}
               <img class="card-foto" src="/images/photo-placeholder.png" alt="">
             {{/if}}
           <div class="card-body">
+            {{#if name}}
             <h4 class="card-title">{{name}}</h4>
+            {{else}}
+            <h4 class="card-title">{{username}}</h4>
+            {{/if}}
             <p><strong>Calificación : </strong><span class="badge badge-warning">{{rating}}</span></p>
+            {{#if category}}
             <p><strong>Categoría : </strong>{{category}}</p>
+            {{else}}
+            <p><strong>Categoría : </strong>No lo ha definido aún</p>
+            {{/if}}
             <a href="/providers/{{username}}"><button class="btn btn-danger">Ver más</button></a>
           </div>
         </div>

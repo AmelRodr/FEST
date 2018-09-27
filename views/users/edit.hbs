@@ -4,13 +4,16 @@
 
 <form action="/users/{{username}}/edit" method="post" enctype="multipart/form-data">
 
+  <label for="name">Nombre</label>
+  <input type="text" name="name" id="" placeholder="Su nombre" id="{{name}}" value='{{name}}'>
+
   <label for="email">Email</label>
-  <input type="email" name="email" id="" placeholder="ejemplo@algo.com" id="{{email}} ">
+  <input type="email" name="email" id="" placeholder="ejemplo@algo.com" id="{{email}}" value='{{email}}'>
 
   <br><br>
 
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password" id="{{password}} " >
+  <input id="password" type="password" name="password" placeholder="Your password" id="{{password}}" value='{{password}}' >
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>

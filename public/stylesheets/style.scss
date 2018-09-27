@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 //Homepage
 .logo-img{
   width:200px;
@@ -160,12 +165,14 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark{
   width:100%;
   display:block;
 }
+.col-3{
+  max-width:22%!important;
+}
 .card{
   padding: 0!important;
-  margin: 10px;
+  margin: 15px;
   background-color:#3E3F40 !important;
   color:#fff !important;
-
 }
 .card-title{
   color:#ffc107;
