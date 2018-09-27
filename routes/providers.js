@@ -25,9 +25,17 @@ router.get('/:username/edit',(req,res,next)=>{
   }).catch(e=>next(e))
 })
 
-router.post('/:username/edit',uploadCloud.single('image'),(req,res,next)=>{
+router.post('/:username/edit',/*uploadCloud.single('image'),*/uploadCloud.array('images'),(req,res,next)=>{
+  console.log(req.files)
   const {username} = req.params
-  if(req.file) req.body['photoURL'] = req.file.url
+  //if(req.file) req.body['photoURL'] = req.file.url
+  if(req.files){
+    let images = []
+    for(let image of req.files ){
+      images.push(image.url)
+    }
+    req.body['gallery'] = images
+  }
   User.findOneAndUpdate({username:username},{$set:req.body},{new:true})
   .then(user=>{
     res.redirect(`/providers/${username}`)
@@ -63,6 +71,7 @@ router.post('/:username/comments',(req, res, next)=>{
       console.log(e)
     })
 })
+
 
 
 

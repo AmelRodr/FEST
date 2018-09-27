@@ -110,4 +110,10 @@ app.use('/users',users)
 const providers = require('./routes/providers')
 app.use('/providers',providers)
 
+app.use('/gallery', require('node-gallery')({
+  staticFiles : 'resources/photos',
+  urlRoot : 'gallery', 
+  title : 'Example Gallery'
+}));
+
 module.exports = app;

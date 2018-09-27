@@ -28,7 +28,8 @@ const userSchema = new Schema({
   category:{
     type:String,
     enum:['Musica','Animación', 'Gastronomía', 'Juegos','Bebidas','Decoración y Ambiente','Video y Fotografía']
-  }
+  },
+  gallery:[String]
 }, {
   timestamps: {
     createdAt: 'created_at',
