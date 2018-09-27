@@ -16,6 +16,7 @@ router.get('/:username', (req, res, next)=>{
           if(req.user.username==user.username)isOwner=true
           console.log( 'esto', comments[comments.length -1].user)
           res.render('providers/profile',{user, owner: isOwner,comments:comments, author: comments.user})
+        .catch(e=>next(e))
     }).catch(error=>{
       console.log(error)
     }) 
