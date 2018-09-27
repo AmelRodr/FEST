@@ -1,33 +1,33 @@
+<section class="edit-form">
+ <div class="container">
+    <h1 style="margin-bottom:30px;">Editar {{username}}</h1>
 
-<h1>edit users</h1>
+    <form action="/users/{{username}}/edit" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="Su nombre" value='{{name}}'>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="ejemplo@algo.com" value='{{email}}'>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" id="password" value='{{password}}'>
+      </div>
+      <br>
 
+      {{#if message }}
+        <div class="error-message">{{ message }}</div>
+      {{/if}}
 
-<form action="/users/{{username}}/edit" method="post" enctype="multipart/form-data">
-
-  <label for="name">Nombre</label>
-  <input type="text" name="name" id="" placeholder="Su nombre" id="{{name}}" value='{{name}}'>
-
-  <label for="email">Email</label>
-  <input type="email" name="email" id="" placeholder="ejemplo@algo.com" id="{{email}}" value='{{email}}'>
-
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password" id="{{password}}" value='{{password}}' >
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-   <input type="file" name="image">
-
-   <br><br>
-  <input type="submit" value="guardar">
-
-  </p>
-
-
-</form>
-
-
+      <div style="margin-bottom:30px;" class="custom-file">
+        <input type="file" name="image" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Agregar archivo desde su computadora</label>
+      </div>
+      <input  class="btn btn-danger" type="submit" value="Guardar">
+    </form>
+  </div>
+</section>

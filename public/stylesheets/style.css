@@ -165,4 +165,10 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark {
 #search-bar {
   width: 60vw; }
 
+.edit-form {
+  background-color: #001D25;
+  color: #fff;
+  height: 100vh;
+  padding: 50px; }
+
 /*# sourceMappingURL=style.css.map */

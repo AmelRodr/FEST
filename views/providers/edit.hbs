@@ -1,48 +1,49 @@
+<section class="edit-form">
+  <div class="container">
+    <h1 style="margin-bottom:30px;">Editar {{username}}</h1>
+    <form action="/providers/{{username}}/edit" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="ejemplo@algo.com" value='{{email}}'>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" id="password" value='{{password}}'>
+      </div>
+      <br>
 
-<h1>edit providers</h1>
+      <div class="form-group">
+        <label for="bio">Descripción</label>
+        <textarea name="bio" class="form-control" id="bio" rows="5">{{bio}}</textarea>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="name">Nombre de su empresa</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="El nombre de su empresa" value='{{name}}'>
+      </div>
+      <br>
 
+      <label for="category">Categoria:</label>
+      <select style="margin-bottom:30px;" name="category" id="category">
+        <option value="Musica" id="{{category}}">Musica</option>
+        <option value="Animación" id="{{category}}" >Animacion</option>
+        <option value="Gastronomía" id="{{category}}">Gastronomía</option>
+        <option value="Juegos" id="{{category}}" >Juegos</option>
+        <option value="Bebidas" id="{{category}}">Bebidas</option>
+        <option value="Decoración y Ambiente" id="{{category}}" >Decoración y Ambiente</option>
+        <option value="Video y Fotografía" id="{{category}}" >Video y Fotografía</option>
+      </select>
+      
+      {{#if message }}
+        <div class="error-message">{{ message }}</div>
+      {{/if}}
 
-<form action="/providers/{{username}}/edit" method="post" enctype="multipart/form-data">
-
-  <label for="email">Email</label>
-  <input type="email" name="email" placeholder="ejemplo@algo.com" id="email" value="{{email}}">
-
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password" value="{{password}}" >
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-  <label for="bio">Biografia</label>
-  <textarea name="bio" id="{{bio}}">{{bio}}</textarea>
-
-  <br><br>
-  <label for="name">Nombre empresa</label>
-  <input type="text" name="name" id="{{name}}" value='{{name}}'>
-
-  <br><br>
-  <label for="category">Categoria:</label>
-  <select name="category" id="category">
-    <option value="Musica" id="{{category}}">Musica</option>
-    <option value="Animación" id="{{category}}" >Animacion</option>
-    <option value="Gastronomía" id="{{category}}">Gastronomía</option>
-    <option value="Juegos" id="{{category}}" >Juegos</option>
-    <option value="Bebidas" id="{{category}}">Bebidas</option>
-    <option value="Decoración y Ambiente" id="{{category}}" >Decoración y Ambiente</option>
-    <option value="Video y Fotografía" id="{{category}}" >Video y Fotografía</option>
-  </select>
-
-  <br><br>
-   <input type="file" name="image" >
-
-  <br><br>
-  <input type="submit" value="guardar">
-
- 
-
-  </p>
-</form>
+      <div style="margin-bottom:30px;" class="custom-file">
+        <input type="file" name="image" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Agregar archivo desde su computadora</label>
+      </div>
+      <input  class="btn btn-danger" type="submit" value="Guardar">
+    </form>
+  </div>
+</section>
