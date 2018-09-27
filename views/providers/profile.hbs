@@ -20,7 +20,7 @@
   <div style="margin:0 auto;" class="row">
     <div class="col-3">
       {{#if user.photoURL}}
-        <img src="{{user.photoURL}} " alt="">
+        <img class="profile-pic"  src="{{user.photoURL}} " alt="">
       {{else}}
         <img class="profile-pic" src="/images/photo-placeholder.png" alt="">
       {{/if}}
@@ -52,10 +52,10 @@
       </div>
       <div class="form-group">
         <label for="rating">Calificar este proveedor</label>
-        <select class="form-control" id="rating">
-          <option name="rating" value="EXCELENTE">Excelente</option>
-          <option name="rating" value="NORMAL">Normal</option>
-          <option name="rating" value="MALO">Malo</option>
+        <select class="form-control" name="rating" id="rating">
+          <option value="EXCELENTE">Excelente</option>
+          <option value="NORMAL">Normal</option>
+          <option  value="MALO">Malo</option>
         </select>
   </div>
       <input class="btn btn-secondary" type="submit" value="Publicar">
@@ -71,7 +71,7 @@
         </div>
         <div class="col-10">
           <h5>Calificación :</h5>
-          <p class="badge badge-warning">{{user.rating}}</p>
+          <p id="newRating" class="badge badge-warning">{{rating}}</p>
           <p>{{text}}</p>
         </div>
       </div> 

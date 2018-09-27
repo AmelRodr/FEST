@@ -11,6 +11,11 @@ const commentSchema = new Schema({
     type:Schema.Types.ObjectId,
     ref:'User'
   },
+  rating:{
+    type:String,
+    enum : ['EXCELENTE','NORMAL','MALO'],
+    default: 'NORMAL'
+  }
 },{
   timestamps:{
     updatedAt:"update_at",
