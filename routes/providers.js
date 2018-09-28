@@ -45,9 +45,20 @@ router.post('/:username/edit',uploadCloud.single('image'),(req,res,next)=>{
 })        
 
 ///LIST
-console.log('hola')
+///console.log('hola')
+
+
 router.get('/uno/list',(req,res,next)=>{
  // console.log('dentro de list')
+
+ const {search} = req.query
+if(search){
+  User.find({category:{$regex: search, $options:'i'}})
+  .then(users=>{
+    res.render('users/list',{users})
+    console.log(search)
+  }).catch(e=>next(e))
+}else{
   User.find({role:'Empresa'})
   .then(users=>{
     //console.log( 'AQUI*********')
@@ -56,6 +67,9 @@ router.get('/uno/list',(req,res,next)=>{
   }).catch(e=>{
     res.redirect('/:username')
   })
+}
+
+ 
 })
 
 
@@ -74,7 +88,7 @@ router.post('/:username/comments',(req, res, next) => {
 
     req.body.user=author;
     req.body.provider=user._id
-    //Comment.create({...req.body, user: author, provider: user._id})
+   // Comment.create({...req.body, user: author, provider: user._id})
     Comment.create(req.body)
     .then(comment => {
      
