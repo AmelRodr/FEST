@@ -91,5 +91,31 @@ router.post('/:username/comments',(req, res, next) => {
   })
 })
 
+/*
+router.post('/:username/comments',(req, res, next) => {
+ //let author = req.user._id//req.app.locals.loggedUser._id
+
+ let author = req.app.locals.loggedUser._id
+
+ console.log(req.user)
+ let {username} = req.params 
+ User.findOne({username})
+ .then(user => {
+
+   req.body.user=author;
+   req.body.provider=user._id
+   //Comment.create({...req.body, user: author, provider: user._id})
+   Comment.create(req.body)
+   .then(comment => {
+    
+     User.findByIdAndUpdate(user._id, {$push: {comments: comment._id}}, {new: true})
+     .then(result => {
+       res.redirect(`/providers/${username}`)
+     }).catch(e=>next(e))
+   }).catch(e=>next(e))
+ }).catch(e=>next(e))
+})
+*/
+
 
 module.exports = router
