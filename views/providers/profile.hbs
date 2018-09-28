@@ -41,7 +41,9 @@
       <a href="/providers/{{user.username}}/gallery"><button class="btn btn-warning">Gallery</button></a>
     </div>
     <div class="col-2">
+      {{#if owner}}
       <a href="/providers/{{user.username}}/edit"><button class="btn btn-dark">Edit Profile</button></a>
+      {{/if}}
     </div>  
   </div>
 </div>
