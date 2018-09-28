@@ -26,9 +26,12 @@
 
 <section class="comments-section">
  <div class="row">
-   <div style="margin:20px auto;" class="col-6">
+   {{#if is_owner}}
+ <div style="margin:20px auto;" class="col-6">
      <a href="/providers/{{username}}/edit/gallery"><button class="btn btn-dark">Edit Gallery</button></a>
    </div>  
+   {{/if}}
+  
  </div>
  <div style="margin:10px;" class="row">
    {{#each gallery}}
