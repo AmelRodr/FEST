@@ -18,7 +18,7 @@ router.post('/login',passport.authenticate('local'),(req, res, next) => {
   console.log(req.app.locals.loggedUser)
   const {username} = req.body
   if(req.user.role === 'Cliente'){
-    res.redirect(`/users/${username}`)
+    res.redirect(`/providers/uno/list`)
   }else{
 
     res.redirect(`/providers/${username}`)
