@@ -40,7 +40,9 @@
             {{else}}
             <h4 class="card-title">{{username}}</h4>
             {{/if}}
-            <p><strong>Calificación : </strong><span class="badge badge-warning">{{rating}}</span></p>
+            {{#colorText rating}}
+              <p id="newRating" class="badge badge-warning">{{rating}}</p>
+            {{/colorText}}
             {{#if category}}
             <p><strong>Categoría : </strong>{{category}}</p>
             {{else}}
