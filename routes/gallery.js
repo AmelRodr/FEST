@@ -5,8 +5,10 @@ const uploadCloud = require('../helpers/cloudinary')
 
 // gallery
 router.get('/:username/gallery',(req,res,next)=>{
-  User.findById(req.user._id) 
+  User.findOne({username:req.params.username}) 
   .then(user=>{
+    console.log(user)
+    if(user._id==req.user._id)user['is_owner'] = true
     res.render('providers/gallery',user)
   }).catch(e=>next(e))
 })
